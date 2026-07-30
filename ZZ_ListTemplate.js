@@ -172,7 +172,7 @@ function replacePersonnelList_(body, personnel) {
 
     item
       .setGlyphType(
-        DocumentApp.GlyphType.LATIN_LOWER
+        DocumentApp.GlyphType.NUMBER
       )
       .setIndentStart(54)
       .setIndentFirstLine(36)
