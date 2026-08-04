@@ -1,5 +1,6 @@
 //----------------------------------
 // Reassignment report performance timing
+// Loaded after Code.js so these functions instrument the live doPost path.
 //----------------------------------
 
 function generateReassignmentReport(payload) {
@@ -21,6 +22,8 @@ function generateReassignmentReport(payload) {
     releaseLockMs: 0,
     personnel: 0,
   };
+
+  console.log("[PERF][AOGEN Reassignment] START");
 
   const lock = LockService.getScriptLock();
   const lockStartedAt = Date.now();
@@ -144,6 +147,11 @@ function createDocumentFromTemplate_(options) {
       ? options.personnel.length
       : 0,
   };
+
+  console.log(
+    "[PERF][AOGEN Document] START personnel=%s",
+    timing.personnel
+  );
 
   const validateStartedAt = Date.now();
   const templateDocId = clean_(options.templateDocId);
